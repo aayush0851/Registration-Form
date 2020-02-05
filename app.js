@@ -13,7 +13,7 @@ mongoose.Promise = global.Promise;
 
 //inittialising middlewares
 app.use(bodyParser.json());
-app.use('')
+app.use('/register', routes);
 
 
 app.listen(process.env.port||4000, function(){
