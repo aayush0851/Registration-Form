@@ -8,12 +8,12 @@ const routes = require('./routes/api');
 const app = express();
 
 //setting up mongoose
-mongoose.connect('mongodb://localhost/register');
+mongoose.connect('mongodb://localhost:27017/register');
 mongoose.Promise = global.Promise;
 
 //inittialising middlewares
 app.use(bodyParser.json());
-app.use('/register', routes);
+app.use('/', routes);
 
 
 app.listen(process.env.port||4000, function(){

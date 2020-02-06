@@ -1,48 +1,115 @@
 <html>
     <head>
         <title>Register Here!</title>
+        <link type="img/png" rel="icon" href="./logo.png">
+        <style>
+          * {
+            margin: 0;
+            padding: 0;
+          }
+          body{
+              background: url('./bkg.svg');
+            /* background-image: linear-gradient(to bottom, #A0BAAD, #A0BAAD);           */
+          }
+          #main-container{
+              position: relative;
+              left: 50%;
+              transform: translateX(-50%);
+              text-align: center;
+          }
+          #container{
+              margin: 50 300px; 
+              padding: 25 100 30 100px;
+              /* background-color: white; */
+              border-top: 5px solid #27ADA5;
+              background-image: linear-gradient(to bottom, rgb(0,0,0,0.3), rgb(0,0,0,0.3));
+          }
+          input{
+              border: none;
+              background-color: rgb(212, 212, 212);
+              margin: 0 0 15 0px;      
+              padding: 10px;  
+              font-family: verdana;    
+          }
+          select{
+              border: none;
+              background-color: rgb(212, 212, 212);
+              margin: 0 0 15 0px;        
+              font-family: verdana;
+          }
+          #br{
+              padding: 10 65 10 65px;
+          }
+          #yr{
+            padding: 10 74 10 74px;
+          }
+          #res{
+              padding: 10 21 10 21px;
+          }
+          button{
+              color: white;
+              border: 1px solid white;
+              background-color: #27ADA5;
+              padding: 10 20 10 20px;
+              letter-spacing: 1px;
+              margin-left: 100px;
+              margin-top: 10px;
+              font-family: Verdana, Geneva, Tahoma, sans-serif;
+          }
+          button:hover{
+              color: #27ADA5;
+              background-color: white;
+              cursor: pointer;
+              padding: 10 20 10 20px;
+              letter-spacing: 1px;
+              margin-left: 100px;
+              margin-top: 10px;
+              border: 1px solid #27ADA5;
+          }
+        </style>
     </head>
     <body>
-        <div id="main- container">
-            <div id="form">
-                <form>
-                    <input type="text" name="name" placeholder="name" required>
-                    <br>
-                    <select name="branch" required> 
-                        <option value=""></option>
-                        <option value="CS">Volvo</option>
-                        <option value="IT">Saab</option>
-                        <option value="ECE">Opel</option>
-                        <option value="EN">Audi</option>
-                        <option value="EI">bojo</option>
-                        <option value="ME">aaaa</option>
-                        <option value="CE">suzu</option>
-                    </select>
-                    <br>
-                    <select name="year" required> 
-                        <option value=""></option>
-                        <option value="1">1</option>
-                        <option value="2">Saab</option>
-                        <option value="3">3</option>
-                        <option value="4">Audi</option>
-                    </select>
-                    <input type="email" name="email" placeholder="E-Mail ID" required>
-                    <br>
-                    <input type="number" name="mobileNumber" placeholder="Mobile Number" required>
-                    <br>
-                    <input type="number" name="rollNumber" placeholder="University Roll Number" required>
-                    <br>
-                    <input type="text" name="userName" placeholder="Hacker-Rank User Name" required>
-                    <br>
-                    <select name="residency" required>
-                        <option value=""></option>
-                        <option value="Hostler"></option>
-                        <option value="Day Scholar">Saab</option>
-                    </select>
-                    <br>
-                    <button type="submit">Register</button>
-                </form>
+        <div id="main-container">
+            <div id="container">
+                    <form method="POST" action="/register"> 
+                        <input type="text" for="name" placeholder="Name" required>
+                        <br>
+                        <select for="branch" id="br" required> 
+                            <option value="">Branch</option>
+                            <option for="CS">CS</option>
+                            <option for="IT">IT</option>
+                            <option v="ECE">ECE</option>
+                            <option value="EN">EN</option>
+                            <option value="EI">EI</option>
+                            <option value="ME">ME</option>
+                            <option value="CE">CE</option>
+                        </select>
+                        <br>
+                        <select name="year" id="yr" required> 
+                            <option value="">Year</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                        <br>
+                        <input type="email" for="email" placeholder="E-Mail ID" required>
+                        <br>
+                        <input type="text" for="mobileNumber" placeholder="Mobile Number" required>
+                        <br>
+                        <input type="text" for="rollNumber" placeholder="University Roll Number" required>
+                        <br>
+                        <input type="text" for="userName" placeholder="HackerRank User Name" required>
+                        <br>
+                        <select name="residency" id="res" required>
+                            <option value="">Hostler/Day Scholar</option>
+                            <option value="Hostler">Hostler</option>
+                            <option value="Day Scholar">Day Scholar</option>
+                        </select>
+                        <br>
+                        <button type="submit">Register</button>
+                    </form>
             </div>
-        </div>
+        </div>   
     </body>
 </html>
