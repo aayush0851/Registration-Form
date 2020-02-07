@@ -11,8 +11,10 @@ const app = express();
 mongoose.connect('mongodb://localhost:27017/register');
 mongoose.Promise = global.Promise;
 
+
 //inittialising middlewares
 app.use(bodyParser.json());
+app.set('view engine', 'ejs');
 app.use('/', routes);
 
 

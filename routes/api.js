@@ -1,9 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const Participant = require('../models/participant')
+const Participant = require('../models/participant');
+const bodyParser = require('body-parser');
+
+const urlencodedParser = bodyParser.urlencoded({extended: false});
+
+//get api
+router.get('/register', function(req,res,next){
+    res.render('index');
+});
 
 //post api
-router.post('/register', function(req,res,next){
+router.post('/register', urlencodedParser, function(req,res,next){
     Participant.find({mobileNumber : req.body.mobileNumber}).exec().then((participant) => {
         if(participant >= 1){
             return res.status(409).json({
@@ -17,13 +25,13 @@ router.post('/register', function(req,res,next){
                     message: result
                 });
             }).catch((err) => {
-                return res.status(500).json({
+                res.status(500).json({
                     error: err
                 });
             });
         }
     }).catch((err) => {
-        return res.status(500).json({
+        res.status(500).json({
             error: err
         });
     });
