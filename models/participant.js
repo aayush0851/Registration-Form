@@ -25,11 +25,15 @@ const participantSchema = new Schema({
     },
     mobileNumber : {
         type : Number,
+        min: 6000000000,
+        max: 9999999999,
         unique : true,
         required : [true, 'This field is required'] 
     },
     rollNumber : {
         type : Number,
+        min: 1900000000,
+        max: 1600000000,
         unique : true,
         required : [true, 'This field is required'] 
     },

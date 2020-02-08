@@ -8,10 +8,7 @@ const routes = require('./routes/api');
 const app = express();
 
 //setting up mongoose
-mongoose.connect(process.env.MONGODB_URI||'mongodb://localhost:27017/register', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
+mongoose.connect('mongodb://localhost:27017/register');
 mongoose.Promise = global.Promise;
 
 

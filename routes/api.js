@@ -12,23 +12,17 @@ router.get('/register', function(req,res,next){
 
 //post api
 router.post('/register', urlencodedParser, function(req,res,next){
-    Participant.find({mobileNumber : req.body.mobileNumber}).exec().then((participant) => {
-        if(participant >= 1){
+    Participant.find({mobileNumber : req.body.mobileNumber}).then((participant) => {
+        if(participant.length >= 1){
             return res.status(409).json({
                 message: 'This participant already exists'
             });
         }
         else{
-            Participant.create(req.body);
-            participant.save().then((result) => {
-                return res.status(201).json({
-                    message: result
-                });
-            }).catch((err) => {
-                res.status(500).json({
-                    error: err
-                });
-            });
+            Participant.create(req.body).then(data => {
+                res.send(data.mobileNumber)})
+                .catch(err=> {
+                    res.send(err)});
         }
     }).catch((err) => {
         res.status(500).json({
